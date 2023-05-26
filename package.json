@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-shopify-zero",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "license": "MIT",
   "description": "Zero-dependency ESLint plugin for Shopify's JavaScript style guide",
   "keywords": [
@@ -8,21 +8,23 @@
     "eslint-config",
     "eslint-plugin"
   ],
-  "main": "./dist/index.js",
+  "main": "./out.js",
   "files": [
-    "dist"
+    "out.js"
   ],
   "scripts": {
-    "build": "ncc build ./index.js --out dist --minify"
+    "ncc": "ncc build ./index.js --out dist --minify",
+    "clean": "make clean",
+    "build": "make build",
+    "publish": "make publish"
   },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
-    "@babel/eslint-plugin": "^7.14.5",
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "change-case": "^4.1.2",
     "doctrine": "^2.1.0",
     "eslint-module-utils": "^2.7.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.0",
     "eslint-plugin-promise": "^6.0.0",
@@ -31,12 +33,14 @@
     "eslint-plugin-sort-class-members": "^1.14.0",
     "jsx-ast-utils": "^3.2.1",
     "pkg-dir": "^5.0.0",
-    "pluralize": "^8.0.0",
-    "@vercel/ncc": "^0.36.1",
-    "react": "^16.13.1",
-    "typescript": "^3.9.2"
+    "pluralize": "^8.0.0"
   },
   "peerDependencies": {
     "eslint": "^8.3.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.36.1",
+    "react": "^16.13.1",
+    "typescript": "^3.9.2"
   }
 }
